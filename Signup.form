@@ -26,7 +26,7 @@
           <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" pref="97" max="-2" attributes="0"/>
                   </Group>
@@ -54,10 +54,10 @@
                           <Component id="password" max="32767" attributes="0"/>
                           <Component id="repassword" max="32767" attributes="0"/>
                           <Component id="username" pref="154" max="32767" attributes="0"/>
-                          <Component id="gender" alignment="0" max="32767" attributes="0"/>
                           <Component id="bloodgroup" alignment="0" max="32767" attributes="0"/>
                           <Component id="Contact" alignment="0" max="32767" attributes="0"/>
                           <Component id="city" max="32767" attributes="0"/>
+                          <Component id="choice1" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -88,18 +88,17 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="bloodgroup" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="gender" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="bloodgroup" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="choice1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Contact" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -214,11 +213,6 @@
         <Property name="text" type="java.lang.String" value="Gender                             :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="gender">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="genderActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
         <Property name="text" type="java.lang.String" value="Blood Group                :"/>
@@ -248,6 +242,11 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cityActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="java.awt.Choice" name="choice1">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="choice1.add(&quot;&quot;);&#xa;choice1.add(&quot;Male&quot;);&#xa;choice1.add(&quot;Female&quot;);&#xa;choice1.add(&quot;Transgender&quot;);"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

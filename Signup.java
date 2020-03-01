@@ -54,13 +54,13 @@ public class Signup extends javax.swing.JFrame {
         jToggleButton1 = new javax.swing.JToggleButton();
         jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        gender = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         bloodgroup = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         Contact = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         city = new javax.swing.JTextField();
+        choice1 = new java.awt.Choice();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -127,12 +127,6 @@ public class Signup extends javax.swing.JFrame {
 
         jLabel5.setText("Gender                             :");
 
-        gender.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                genderActionPerformed(evt);
-            }
-        });
-
         jLabel6.setText("Blood Group                :");
 
         bloodgroup.addActionListener(new java.awt.event.ActionListener() {
@@ -156,6 +150,11 @@ public class Signup extends javax.swing.JFrame {
                 cityActionPerformed(evt);
             }
         });
+
+        choice1.add("");
+        choice1.add("Male");
+        choice1.add("Female");
+        choice1.add("Transgender");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -187,10 +186,10 @@ public class Signup extends javax.swing.JFrame {
                             .addComponent(password)
                             .addComponent(repassword)
                             .addComponent(username, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                            .addComponent(gender)
                             .addComponent(bloodgroup)
                             .addComponent(Contact)
-                            .addComponent(city))))
+                            .addComponent(city)
+                            .addComponent(choice1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -215,13 +214,12 @@ public class Signup extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel6))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(gender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(bloodgroup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(10, 10, 10)
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(bloodgroup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(choice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(Contact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -320,12 +318,6 @@ public class Signup extends javax.swing.JFrame {
         city1 = city.getText();
     }//GEN-LAST:event_cityActionPerformed
 
-    private void genderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genderActionPerformed
-        // TODO add your handling code here:
-        gender1 = gender.getText();
-        
-    }//GEN-LAST:event_genderActionPerformed
-
     private void bloodgroupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bloodgroupActionPerformed
         // TODO add your handling code here:
         blood = bloodgroup.getText();
@@ -390,8 +382,8 @@ public class Signup extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Contact;
     private javax.swing.JTextField bloodgroup;
+    private java.awt.Choice choice1;
     private javax.swing.JTextField city;
-    private javax.swing.JTextField gender;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

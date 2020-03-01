@@ -23,6 +23,8 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        
+        
     }
 
     /**
@@ -83,16 +85,16 @@ public class Login extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(281, Short.MAX_VALUE)
+                .addContainerGap(292, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(217, 217, 217))
+                .addGap(206, 206, 206))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(55, Short.MAX_VALUE)
+                .addContainerGap(45, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addGap(27, 27, 27))
+                .addGap(37, 37, 37))
         );
 
         jButton1.setText("Back");
@@ -182,7 +184,7 @@ public class Login extends javax.swing.JFrame {
                     pass = rs.getString(3);
                     if(user.equals(username1)&&pass.equals(password1))
                     {
-                        System.out.println("Welcome" + username);
+                        System.out.println("Welcome " + user);
                         ManageProfile mp = new ManageProfile();
                         dispose();
                         p=1;

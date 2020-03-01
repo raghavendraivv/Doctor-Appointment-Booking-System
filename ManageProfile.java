@@ -5,17 +5,41 @@
  */
 package onlinedoctorappointmentsystem;
     
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+
 /**
  *
  * @author raghavendhra
  */
-public class ManageProfile extends javax.swing.JFrame {
-
+public class ManageProfile extends javax.swing.JFrame{
+    public static String user1;
     /**
      * Creates new form ManageProfile
      */
     public ManageProfile() {
         initComponents();
+       Login l = new Login();
+       user1 = l.username1;
+        //System.out.println(user1 + "MP");
+        try {
+           Class.forName("com.mysql.jdbc.Driver");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/doctorappointment","raghs","root");
+                Statement stmt=conn.createStatement();  
+                //stmt.executeQuery("use doctorappointment");
+                ResultSet rs=stmt.executeQuery("select * from user");
+                //System.out.println(user1 + "MP");
+
+//                ResultSet rp = stmt.executeQuery("select * from user where username='"+l.username1+"'");
+//                System.out.println(rp.getString(2));
+                conn.close();
+        }
+         catch (Exception e) {
+                    e.printStackTrace();
+		}
     }
 
     /**
@@ -94,8 +118,10 @@ public class ManageProfile extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html **/
+//         Login l = new Login();
+//        System.out.println(l.username1);
+         
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -120,6 +146,8 @@ public class ManageProfile extends javax.swing.JFrame {
                 new ManageProfile().setVisible(true);
             }
         });
+                ManageProfile l = new ManageProfile();
+        System.out.println(l.user1);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
