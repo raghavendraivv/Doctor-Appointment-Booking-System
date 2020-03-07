@@ -5,6 +5,10 @@
  */
 package onlinedoctorappointmentsystem;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 /**
  *
  * @author raghavendhra
@@ -16,6 +20,13 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+            ImageIcon background=new ImageIcon("/home/raghavendhra/NetBeansProjects/mavenproject2/Doctor/OnlineDoctorAppointmentSystem/src/onlinedoctorappointmentsystem/photo.jpg");
+            Image img=background.getImage();
+            Image temp=img.getScaledInstance(500,600,Image.SCALE_SMOOTH);
+            background=new ImageIcon(temp);
+            JLabel back=new JLabel(background);
+            back.setLayout(null);
+            back.setBounds(0,0,500,600);
     }
 
     /**

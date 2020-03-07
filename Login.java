@@ -252,7 +252,7 @@ public class Login extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        System.out.println("user");
+        System.out.println(username1+"100000");
 //        try {
 //           Class.forName("com.mysql.jdbc.Driver");
 //                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/doctorappointment","raghs","root");
@@ -275,6 +275,8 @@ public class Login extends javax.swing.JFrame {
                 new Login().setVisible(true);
             }
         });
+                System.out.println(username1+"100000");
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
