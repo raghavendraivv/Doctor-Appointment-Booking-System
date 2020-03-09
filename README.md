@@ -1,6 +1,6 @@
 # Doctor-Appointment-Booking-System
-It is web application which helps to book appointment with the Doctor
-           SOFTWARE REQUIREMENT SPECIFICATION
+
+           #SOFTWARE REQUIREMENT SPECIFICATION
 Introduction
 1.1 Purpose
            This document is to describe all the software requirement specification (SRS) for the Doctor Appointment Booking System. The system aims to help the patients to take appointments online through the internet and track their records through it.Polyclinic has been facing problems due to its paper-based appointment system. With the increase in the number of patients visiting, it has become difficult to manage the appointment system manually.The purpose of this project is to solve these complications by creating custom-built database software to manage the appointment system. For the user/patient it makes it easy to set date and time for the treatment of the patient to the relevant doctor.It also helps to maintain doctor’s consultation fee.Above all,it helps to develop a simple user interface to help the user with the doctors’ arrangement.  
