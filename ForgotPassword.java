@@ -22,6 +22,7 @@ public class ForgotPassword extends javax.swing.JFrame {
     public static String repass1;
     public static String pass2;
     public static int t=1;
+    public static int ii;
     
     /**
      * Creates new form ForgotPassword
@@ -188,10 +189,18 @@ public class ForgotPassword extends javax.swing.JFrame {
          catch (Exception e) {
                     e.printStackTrace();
 		}
-
+         if(ManageProfile.ii==0)
+         {
         Login login = new Login();
         dispose();
         login.setVisible(true);
+         }
+         else
+         {
+             ManageProfile mp = new ManageProfile();
+             dispose();
+             mp.setVisible(true);
+         }
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
