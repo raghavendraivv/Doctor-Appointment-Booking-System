@@ -10,7 +10,7 @@ package onlinedoctorappointmentsystem;
  * @author raghavendhra
  */
 public class Specilization extends javax.swing.JFrame {
-
+    public static String docname;
     /**
      * Creates new form Specilization
      */
@@ -220,14 +220,27 @@ public class Specilization extends javax.swing.JFrame {
 
     private void CardiologistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CardiologistActionPerformed
         // TODO add your handling code here:
+        docname = "Cardiologist";
+        Selectdoctor s = new Selectdoctor();
+        dispose();
+        s.setVisible(true);
+        
     }//GEN-LAST:event_CardiologistActionPerformed
 
     private void PulmonologistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PulmonologistActionPerformed
         // TODO add your handling code here:
+        docname = "Pulmonologist";
+        Selectdoctor s = new Selectdoctor();
+        dispose();
+        s.setVisible(true);
     }//GEN-LAST:event_PulmonologistActionPerformed
 
     private void GastroenterologistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GastroenterologistActionPerformed
         // TODO add your handling code here:
+        docname = "Gastroenterologist";
+        Selectdoctor s = new Selectdoctor();
+        dispose();
+        s.setVisible(true);
     }//GEN-LAST:event_GastroenterologistActionPerformed
 
     private void OphthalmologistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OphthalmologistActionPerformed
