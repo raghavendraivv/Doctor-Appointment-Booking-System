@@ -45,8 +45,11 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="jToggleButton1" min="-2" pref="120" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="label1" min="-2" pref="96" max="-2" attributes="0"/>
+                                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -54,9 +57,7 @@
                               <Component id="jToggleButton2" min="-2" pref="143" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                              <Component id="label1" min="-2" pref="96" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="231" max="-2" attributes="0"/>
                               <Component id="username" min="-2" pref="141" max="-2" attributes="0"/>
                           </Group>
                       </Group>

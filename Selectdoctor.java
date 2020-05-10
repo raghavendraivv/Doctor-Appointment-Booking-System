@@ -25,12 +25,14 @@ public class Selectdoctor extends javax.swing.JFrame {
      */
     public Selectdoctor() {
         initComponents();
-        int x =50,y=20;
+        int x =0,y=0,w=50;
         String docname1 =Specilization.docname;
-        String name,gender,time;
-        int amount;
+        String name;
        JLabel[] array = new JLabel[10];
        JLabel name1 = new JLabel();
+       JLabel time = new JLabel();
+       JLabel gender = new JLabel();
+       JLabel amount = new JLabel();
 //        for(int i=0;i<10;i++)
 //        {
 //            array[i] = new JLabel("raghs"+i);
@@ -48,43 +50,71 @@ public class Selectdoctor extends javax.swing.JFrame {
            Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/doctorappointment","raghs","root");
                 Statement stmt=conn.createStatement();  
-                //stmt.executeQuery("use doctorappointment");
-                //ResultSet rs=stmt.executeQuery("select * from user");
-                //System.out.println(user1 + "MP");
                 ResultSet rp = stmt.executeQuery("select * from doctor where specailization='"+docname1+"'");
-                ///rp.next();
-              // System.out.println(rp.getString(4));
-               //String gen = rp.getString(4);
-                //conn.close();
-                int i=0;
+                x=10;
+                w=110;
+                y=50;
                 while(rp.next())
                 {
-                    //System.out.println("hii");
-                    array[i] = new JLabel("raghs"+i);
-                    //array[i].setText("i"+i);
+                    rp.next();
+                    rp.previous();
+                    JLabel name2 = new JLabel();
+                    name2.setText("Name : ");
+                    this.add(name2);
+                    name2.setOpaque(true);
+                    name2.setBounds(x,y,50,50);
+                    //y+=50
+                    
                     name1.setText(String.valueOf(rp.getString(2)));
                     this.add(name1);
-                    // name1.setOpaque(true);
-                     name1.setBounds(x, y, 120, 120);
-                    // System.out.println(array[i].toString());
-                     x+=100;
-                    array[i].setText(String.valueOf(rp.getString(6)));
-                    this.add(array[i]);
-                     array[i].setOpaque(true);
-                     array[i].setBounds(x, y, 140, 140);
-                     x+=100;
-                    array[i].setText(String.valueOf(rp.getString(3)));
-//                    System.out.println(rp.getString(2));
-//                    System.out.println(rp.getString(3));
-//                    System.out.println(rp.getString(6));
-                    this.add(array[i]);
-                    array[i].setOpaque(true);
-                    array[i].setBounds(x, y, 200, 200);
+                    name1.setOpaque(true);
+                    name1.setBounds(w, y, 200, 50);
+                    System.out.println(rp.getString(2));
+                    y+=30;
+                  
+                    JLabel time2 = new JLabel();
+                    time2.setText("Time : ");
+                    this.add(time2);
+                    time2.setOpaque(true);
+                    time2.setBounds(x,y,50,50);
                     
-                  //amount.setText(String.valueOf(rp.getString(7)));
+                    time.setText(String.valueOf(rp.getString(6)));
+                    this.add(time);
+                    time.setOpaque(true);
+                    time.setBounds(w, y, 100, 50);
+                     //x+=100;
+                    y+=30;
+                   // y-=50;
+                    
+                    JLabel gender1 = new JLabel();
+                    gender1.setText("Gender : ");
+                    this.add(gender1);
+                    gender1.setOpaque(true);
+                    gender1.setBounds(x,y,100,50);
+                    //y-=50;
+                    
+                    gender.setText(String.valueOf(rp.getString(3)));
+                    this.add(gender);
+                    gender.setOpaque(true);
+                    gender.setBounds(w, y, 150, 50);
+                    y+=30;
+                    
+                    JLabel amount1 = new JLabel();
+                    amount1.setText("Amount : ");
+                    this.add(amount1);
+                    amount1.setOpaque(true);
+                    amount1.setBounds(x,y,100,50);
+                   // x+=50;
+                    
+                    amount.setText(String.valueOf(rp.getString(5)));
+                    this.add(amount);
+                    amount.setOpaque(true);
+                    amount.setBounds(w, y, 150, 50);
                   //.setText(String.valueOf(rp.getString(2)));
-                  x+=40;
-                  i++;
+                  //name1=null;
+                  x=10;
+                  y+=50;
+                 // i++;
                 }
                   conn.close();
         }
@@ -102,21 +132,43 @@ public class Selectdoctor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jToggleButton1 = new javax.swing.JToggleButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jToggleButton1.setText("Back");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 945, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(793, Short.MAX_VALUE)
+                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 579, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jToggleButton1)
+                .addContainerGap(521, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+        Specilization s = new Specilization();
+        dispose();
+        s.setVisible(true);
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,5 +206,6 @@ public class Selectdoctor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
 }
