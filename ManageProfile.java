@@ -180,6 +180,11 @@ public class ManageProfile extends javax.swing.JFrame{
         jToggleButton1.setFont(new java.awt.Font("Ubuntu", 1, 20)); // NOI18N
         jToggleButton1.setForeground(java.awt.Color.white);
         jToggleButton1.setText("Appointment History");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         wbg.setFont(new java.awt.Font("Ubuntu", 1, 20)); // NOI18N
         wbg.setForeground(java.awt.Color.white);
@@ -352,6 +357,13 @@ public class ManageProfile extends javax.swing.JFrame{
         dispose();
         s.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+        AppointmentHistory ah = new AppointmentHistory();
+        dispose();
+        ah.setVisible(true);
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
      * @param args the command line arguments

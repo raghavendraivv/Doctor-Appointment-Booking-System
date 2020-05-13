@@ -66,9 +66,9 @@ public class Selectdoctor extends javax.swing.JFrame {
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/doctorappointment","raghs","root");
                 Statement stmt=conn.createStatement();  
                 ResultSet rp = stmt.executeQuery("select * from doctor where specailization='"+docname1+"'");
-                x=10;
-                w=110;
-                y=170;
+                x=20;
+                w=120;
+                y=190;
                // name1.setText(" " );
                 while(rp.next())
                 {
@@ -145,7 +145,17 @@ public class Selectdoctor extends javax.swing.JFrame {
                     String o = b.getText();
                     int h = o.length();
                     //char ch = getCharFromString(o, h-1); 
-                    r = o.charAt(h-1) - '0';
+                    System.out.println(h);
+                    if(h==17)
+                    {
+                        r = o.charAt(h-1) - '0';
+                    }
+                    else
+                    {
+                        int b=o.charAt(h-2) - '0';
+                        int bb = o.charAt(h-1) - '0';
+                        r=(b*10)+bb;
+                    }
                     System.out.println(o.charAt(h-1));
                     //System.out.println(o);
                     //time5 = rp.getTime("timmings");
@@ -165,8 +175,6 @@ public class Selectdoctor extends javax.swing.JFrame {
                             ResultSet rp = stmt.executeQuery("select * from doctor where doc_id="+r);
                             rp.next();
                            stmt.executeUpdate("insert into appointmentbooking(id,doc_id,dateofapp,time)"+ "values("+Login.id1+","+r+",'"+date2+"','"+rp.getTime(6)+"')");
-                          // System.out.println(Login.id1);
-                          // System.out.println(Selectdoctor.id);
                            FixAppointment f = new FixAppointment();
                             dispose();
                             f.setVisible(true);
@@ -332,10 +340,13 @@ public class Selectdoctor extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        Date comdate = new Date();
+        String f;
         p=0;
         SimpleDateFormat dcn = new SimpleDateFormat("yyyy-MM-dd");
         date2 = dcn.format(jCalendar1.getDate());
-        System.out.println(date2);
+        dcn.format(comdate);
+        //System.out.println(comdate);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

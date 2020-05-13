@@ -275,7 +275,7 @@ public class Login extends javax.swing.JFrame {
                     {
                         //System.out.println("Welcome " + user);
                         id1=rs.getInt(1);
-                        Specilization mp = new Specilization();
+                        ChooseAppointment mp = new ChooseAppointment();
                         dispose();
                         p=1;
                         mp.setVisible(true);
