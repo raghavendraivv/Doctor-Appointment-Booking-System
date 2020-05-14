@@ -49,12 +49,12 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jButton2" max="32767" attributes="0"/>
-                      <Component id="jButton1" pref="63" max="32767" attributes="0"/>
+                      <Component id="jButton2" pref="63" max="32767" attributes="0"/>
                       <Component id="jButton3" max="32767" attributes="0"/>
-                      <Component id="jButton4" max="32767" attributes="0"/>
+                      <Component id="jButton5" min="-2" pref="55" max="-2" attributes="0"/>
+                      <Component id="jButton4" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="jButton5" min="-2" pref="55" max="-2" attributes="0"/>
+                  <Component id="jButton1" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="41" max="32767" attributes="0"/>
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
@@ -251,21 +251,10 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Ubuntu" size="20" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Edit Appointment"/>
+        <Property name="text" type="java.lang.String" value="Next Appointments"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton4">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Ubuntu" size="20" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Cancel Appointment"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton5">
@@ -275,6 +264,17 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Logout"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton4">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Ubuntu" size="20" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Previous Appointments"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

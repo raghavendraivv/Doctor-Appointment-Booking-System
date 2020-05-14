@@ -28,7 +28,7 @@ import java.sql.Time;
  */
 public class Selectdoctor extends javax.swing.JFrame {
 
-    public static int id,p=1,l=0,r;
+    public static int id,p=1,l=0,r,money;
     public static int doctor_id;
     public static Date date = new Date();
     public static String date2;
@@ -66,9 +66,9 @@ public class Selectdoctor extends javax.swing.JFrame {
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/doctorappointment","raghs","root");
                 Statement stmt=conn.createStatement();  
                 ResultSet rp = stmt.executeQuery("select * from doctor where specailization='"+docname1+"'");
-                x=20;
-                w=120;
-                y=190;
+                x=70;
+                w=190;
+                y=250;
                // name1.setText(" " );
                 while(rp.next())
                 {
@@ -138,7 +138,7 @@ public class Selectdoctor extends javax.swing.JFrame {
                     JButton b=new JButton("Book Appointment"+rp.getInt(1));  
                     this.add(b);
                     b.setOpaque(true);
-                    b.setBounds(20,y,150,30);
+                    b.setBounds(60,y,170,30);
                     b.addActionListener(new ActionListener(){  
                     public void actionPerformed(ActionEvent e){  
                     // System.out.println(id);
@@ -156,7 +156,7 @@ public class Selectdoctor extends javax.swing.JFrame {
                         int bb = o.charAt(h-1) - '0';
                         r=(b*10)+bb;
                     }
-                    System.out.println(o.charAt(h-1));
+                    //System.out.println(o.charAt(h-1));
                     //System.out.println(o);
                     //time5 = rp.getTime("timmings");
                     doctor_id=Selectdoctor.id;
@@ -174,8 +174,9 @@ public class Selectdoctor extends javax.swing.JFrame {
                             Statement stmt=conn.createStatement();  
                             ResultSet rp = stmt.executeQuery("select * from doctor where doc_id="+r);
                             rp.next();
+                            money = rp.getInt(5);
                            stmt.executeUpdate("insert into appointmentbooking(id,doc_id,dateofapp,time)"+ "values("+Login.id1+","+r+",'"+date2+"','"+rp.getTime(6)+"')");
-                           FixAppointment f = new FixAppointment();
+                           Payment f = new Payment();
                             dispose();
                             f.setVisible(true);
                         }
@@ -192,7 +193,7 @@ public class Selectdoctor extends javax.swing.JFrame {
 //                        
 //                        break;
 //                    }
-                  x=10;
+                  x=70;
                   y+=50;
                  // i++;
                 }
@@ -220,6 +221,7 @@ public class Selectdoctor extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jCalendar1 = new com.toedter.calendar.JCalendar();
         jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -257,8 +259,9 @@ public class Selectdoctor extends javax.swing.JFrame {
                 .addComponent(jLabel3))
         );
 
+        jButton1.setBackground(java.awt.Color.gray);
         jButton1.setFont(new java.awt.Font("Ubuntu", 1, 20)); // NOI18N
-        jButton1.setForeground(java.awt.Color.lightGray);
+        jButton1.setForeground(java.awt.Color.white);
         jButton1.setText("Confirm Date");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -290,6 +293,14 @@ public class Selectdoctor extends javax.swing.JFrame {
         jLabel1.setForeground(java.awt.Color.gray);
         jLabel1.setText("Select Doctor");
 
+        jButton2.setFont(new java.awt.Font("Ubuntu", 1, 20)); // NOI18N
+        jButton2.setText("Logout");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -299,16 +310,17 @@ public class Selectdoctor extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(133, 133, 133)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(68, 68, 68)
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(137, 137, 137))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(64, 64, 64))))
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(99, 99, 99))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -316,16 +328,18 @@ public class Selectdoctor extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(jButton1)
-                .addGap(0, 234, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 246, Short.MAX_VALUE))
         );
 
         pack();
@@ -333,7 +347,7 @@ public class Selectdoctor extends javax.swing.JFrame {
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
-        Specilization s = new Specilization();
+        ChooseAppointment s = new ChooseAppointment();
         dispose();
         s.setVisible(true);
     }//GEN-LAST:event_jToggleButton1ActionPerformed
@@ -348,6 +362,13 @@ public class Selectdoctor extends javax.swing.JFrame {
         dcn.format(comdate);
         //System.out.println(comdate);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Main m = new Main();
+        dispose();
+        m.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -386,6 +407,7 @@ public class Selectdoctor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

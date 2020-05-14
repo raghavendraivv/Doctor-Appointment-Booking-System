@@ -91,6 +91,11 @@ public class Specilization extends javax.swing.JFrame {
         Otolaryngologist.setFont(new java.awt.Font("Ubuntu", 1, 20)); // NOI18N
         Otolaryngologist.setForeground(java.awt.Color.white);
         Otolaryngologist.setText("Otolaryngologist");
+        Otolaryngologist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OtolaryngologistActionPerformed(evt);
+            }
+        });
 
         Ophthalmologist.setBackground(java.awt.Color.gray);
         Ophthalmologist.setFont(new java.awt.Font("Ubuntu", 1, 20)); // NOI18N
@@ -312,6 +317,14 @@ public class Specilization extends javax.swing.JFrame {
         dispose();
         s.setVisible(true);
     }//GEN-LAST:event_NeurologistActionPerformed
+
+    private void OtolaryngologistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OtolaryngologistActionPerformed
+        // TODO add your handling code here:
+        docname = "Otolaryngologist";
+        Selectdoctor s = new Selectdoctor();
+        dispose();
+        s.setVisible(true);
+    }//GEN-LAST:event_OtolaryngologistActionPerformed
 
     /**
      * @param args the command line arguments
