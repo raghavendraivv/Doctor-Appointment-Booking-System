@@ -28,15 +28,16 @@ public class AppointmentHistory extends javax.swing.JFrame {
                 Statement stmt=conn.createStatement();  
                 ResultSet rp = stmt.executeQuery("select doctor.name,appointmentbooking.dateofapp from appointmentbooking,doctor where doctor.doc_id=appointmentbooking.doc_id and (appointmentbooking.id="+Login.id1+" and appointmentbooking.dateofapp<curdate())");
                 //rp.next();
-                int x=450,y=350;
+                int x=550,y=350;
                 while(rp.next())
                 {
                     JLabel name2 = new JLabel();
+                    name2.setFont(new java.awt.Font("Ubuntu", 1, 17));
                     name2.setText("You had a Appointment with "+rp.getString(1)+" on "+rp.getString(2));
                     this.add(name2);
                     name2.setOpaque(true);
-                    name2.setBounds(x,y,500,50);
-                    y+=30;
+                    name2.setBounds(x,y,600,50);
+                    y+=40;
                 
                 }
         }

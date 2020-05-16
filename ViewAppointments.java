@@ -33,7 +33,7 @@ public class ViewAppointments extends javax.swing.JFrame {
                 Statement stmt=conn.createStatement();  
                 ResultSet rp = stmt.executeQuery("select a.appoint_id,d.name,a.dateofapp,a.time from appointmentbooking as a,doctor as d where a.doc_id=d.doc_id and (a.dateofapp >=(select curdate()) and id="+Login.id1+")");
                 int x=800;
-                int w=900;
+                int w=950;
                 int y=250;
                // name1.setText(" " );
                 while(rp.next())
@@ -41,36 +41,41 @@ public class ViewAppointments extends javax.swing.JFrame {
                     rp.next();
                     rp.previous();
                     JLabel name2 = new JLabel();
+                    name2.setFont(new java.awt.Font("Ubuntu", 1, 17));
                     name2.setText("Name : ");
                     this.add(name2);
                     name2.setOpaque(true);
-                    name2.setBounds(x,y,50,50);
+                    name2.setBounds(x,y,80,50);
                     //y+=50
                     
                     JLabel name1 = new JLabel();
+                    name1.setFont(new java.awt.Font("Ubuntu", 1, 17));
                     name1.setText(String.valueOf(rp.getString(2)));
                     this.add(name1);
                     name1.setOpaque(true);
                     name1.setBounds(w, y, 200, 50);
                     //System.out.println(rp.getString(2));
-                    y+=30;
+                    y+=40;
                   
                     JLabel time2 = new JLabel();
+                    time2.setFont(new java.awt.Font("Ubuntu", 1, 17));
                     time2.setText("Date : ");
                     this.add(time2);
                     time2.setOpaque(true);
-                    time2.setBounds(x,y,50,50);
+                    time2.setBounds(x,y,80,50);
                     
                     JLabel time = new JLabel();
+                    time.setFont(new java.awt.Font("Ubuntu", 1, 17));
                     time.setText(String.valueOf(rp.getString(3)));
                     this.add(time);
                     time.setOpaque(true);
                     time.setBounds(w, y, 100, 50);
                      //x+=100;
-                    y+=30;
+                    y+=40;
                    // y-=50;
                     
                     JLabel gender1 = new JLabel();
+                    gender1.setFont(new java.awt.Font("Ubuntu", 1, 17));
                     gender1.setText("Time : ");
                     this.add(gender1);
                     gender1.setOpaque(true);
@@ -78,19 +83,21 @@ public class ViewAppointments extends javax.swing.JFrame {
                     //y-=50;
                     
                     JLabel gender = new JLabel();
+                    gender.setFont(new java.awt.Font("Ubuntu", 1, 17));
                     gender.setText(String.valueOf(rp.getString(4)));
                     this.add(gender);
                     gender.setOpaque(true);
                     gender.setBounds(w, y, 150, 50);
-                    y+=50;
+                    y+=55;
                     
                     id=rp.getInt(1);
                     //System.out.println(id);
                     ChooseAppointment.ea=1;
-                    JButton b=new JButton("Edit Appointment"+id);  
+                    JButton b=new JButton("Edit Appointment "+id); 
+                    b.setFont(new java.awt.Font("Ubuntu", 1, 19));
                     this.add(b);
                     b.setOpaque(true);
-                    b.setBounds(750,y,170,30);
+                    b.setBounds(700,y,210,45);
                     b.addActionListener(new ActionListener(){  
                     public void actionPerformed(ActionEvent e){  
                     String oo = b.getText();
@@ -113,9 +120,10 @@ public class ViewAppointments extends javax.swing.JFrame {
         }  
     });  
                     JButton b1=new JButton("Cancel Appointment"+id);  
+                    b1.setFont(new java.awt.Font("Ubuntu", 1, 19));
                     this.add(b1);
                     b1.setOpaque(true);
-                    b1.setBounds(930,y,170,30);
+                    b1.setBounds(930,y,230,45);
                     b1.addActionListener(new ActionListener(){  
                     public void actionPerformed(ActionEvent e){  
                     String oo = b1.getText();
@@ -217,28 +225,24 @@ public class ViewAppointments extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(612, 612, 612)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(599, 599, 599)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 619, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 581, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel3)))
-                .addContainerGap(843, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(815, Short.MAX_VALUE))
         );
 
         pack();

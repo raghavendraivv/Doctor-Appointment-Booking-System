@@ -67,7 +67,7 @@ public class Selectdoctor extends javax.swing.JFrame {
                 Statement stmt=conn.createStatement();  
                 ResultSet rp = stmt.executeQuery("select * from doctor where specailization='"+docname1+"'");
                 x=70;
-                w=190;
+                w=260;
                 y=250;
                // name1.setText(" " );
                 while(rp.next())
@@ -75,36 +75,41 @@ public class Selectdoctor extends javax.swing.JFrame {
                     rp.next();
                     rp.previous();
                     JLabel name2 = new JLabel();
+                    name2.setFont(new java.awt.Font("Ubuntu", 1, 18));
                     name2.setText("Name : ");
                     this.add(name2);
                     name2.setOpaque(true);
-                    name2.setBounds(x,y,50,50);
+                    name2.setBounds(x,y,100,50);
                     //y+=50
                     
                     JLabel name1 = new JLabel();
+                    name1.setFont(new java.awt.Font("Ubuntu", 1, 18));
                     name1.setText(String.valueOf(rp.getString(2)));
                     this.add(name1);
                     name1.setOpaque(true);
                     name1.setBounds(w, y, 200, 50);
                     //System.out.println(rp.getString(2));
-                    y+=30;
+                    y+=45;
                   
                     JLabel time2 = new JLabel();
+                    time2.setFont(new java.awt.Font("Ubuntu", 1, 18));
                     time2.setText("Time : ");
                     this.add(time2);
                     time2.setOpaque(true);
-                    time2.setBounds(x,y,50,50);
+                    time2.setBounds(x,y,100,50);
                     
                     JLabel time = new JLabel();
+                    time.setFont(new java.awt.Font("Ubuntu", 1, 18));
                     time.setText(String.valueOf(rp.getString(6)));
                     this.add(time);
                     time.setOpaque(true);
                     time.setBounds(w, y, 100, 50);
                      //x+=100;
-                    y+=30;
+                    y+=45;
                    // y-=50;
                     
                     JLabel gender1 = new JLabel();
+                    gender1.setFont(new java.awt.Font("Ubuntu", 1, 18));
                     gender1.setText("Gender : ");
                     this.add(gender1);
                     gender1.setOpaque(true);
@@ -112,13 +117,15 @@ public class Selectdoctor extends javax.swing.JFrame {
                     //y-=50;
                     
                     JLabel gender = new JLabel();
+                    gender.setFont(new java.awt.Font("Ubuntu", 1, 18));
                     gender.setText(String.valueOf(rp.getString(3)));
                     this.add(gender);
                     gender.setOpaque(true);
                     gender.setBounds(w, y, 150, 50);
-                    y+=30;
+                    y+=45;
                     
                     JLabel amount1 = new JLabel();
+                    amount1.setFont(new java.awt.Font("Ubuntu", 1, 18));
                     amount1.setText("Amount : ");
                     this.add(amount1);
                     amount1.setOpaque(true);
@@ -126,19 +133,21 @@ public class Selectdoctor extends javax.swing.JFrame {
                    // x+=50;
                     
                     JLabel amount = new JLabel();
+                    amount.setFont(new java.awt.Font("Ubuntu", 1, 18));
                     amount.setText(String.valueOf(rp.getString(5)));
                     this.add(amount);
                     amount.setOpaque(true);
                     amount.setBounds(w, y, 150, 50);
                   //.setText(String.valueOf(rp.getString(2)));
                   //name1=null;
-                    y+=50;
+                    y+=55;
                     id=rp.getInt("doc_id");
                     //System.out.println(id);
-                    JButton b=new JButton("Book Appointment"+rp.getInt(1));  
+                    JButton b=new JButton("Book Appointment"+rp.getInt(1)); 
+                    b.setFont(new java.awt.Font("Ubuntu", 1, 19));
                     this.add(b);
                     b.setOpaque(true);
-                    b.setBounds(60,y,170,30);
+                    b.setBounds(80,y,215,55);
                     b.addActionListener(new ActionListener(){  
                     public void actionPerformed(ActionEvent e){  
                     // System.out.println(id);
