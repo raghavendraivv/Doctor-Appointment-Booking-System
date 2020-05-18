@@ -326,13 +326,14 @@ public class Signup extends javax.swing.JFrame {
         if(password1.equals(password2))
         {
             pass = password1;
-            System.out.println(pass);
+            //System.out.println(pass);
             t=1;
            // stmt.executeUpdate("insert into user(username,password)"+ "values('"+ username1 + "','amrita')");
         }
         else
         {
-                System.out.println("Wrong Password");
+            JOptionPane.showMessageDialog(rootPane,"Password Does not Match!!");
+               // System.out.println("Wrong Password");
         }
          try {
            Class.forName("com.mysql.jdbc.Driver");
@@ -377,19 +378,19 @@ public class Signup extends javax.swing.JFrame {
     private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
         // TODO add your handling code here:
         username1 = username.getText();
-        System.out.println(username1);    
+       // System.out.println(username1);    
     }//GEN-LAST:event_usernameActionPerformed
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
         // TODO add your handling code here:
         password1 = password.getText();
-        System.out.print(password1);
+       // System.out.print(password1);
     }//GEN-LAST:event_passwordActionPerformed
 
     private void repasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_repasswordActionPerformed
         // TODO add your handling code here:
         password2 = repassword.getText();
-        System.out.print(password2);
+        //System.out.print(password2);
     }//GEN-LAST:event_repasswordActionPerformed
 
     private void ContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactActionPerformed

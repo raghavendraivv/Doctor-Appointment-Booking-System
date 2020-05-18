@@ -376,7 +376,7 @@ public class Selectdoctor extends javax.swing.JFrame {
         p=0;
         SimpleDateFormat dcn = new SimpleDateFormat("yyyy-MM-dd");
         date2 = dcn.format(jCalendar1.getDate());
-        dcn.format(comdate);
+        //dcn.format(comdate);
         //System.out.println(comdate);
     }//GEN-LAST:event_jButton1ActionPerformed
 

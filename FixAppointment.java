@@ -128,7 +128,7 @@ public class FixAppointment extends javax.swing.JFrame {
 
         timeofappointment.setFont(new java.awt.Font("Ubuntu", 1, 17)); // NOI18N
 
-        jLabel7.setText(" ,please make sure you reach before 15 minutes, and");
+        jLabel7.setText(" ,please make sure you reach before 15 minutes.");
 
         jLabel8.setText("Thank You, ");
 
@@ -137,8 +137,6 @@ public class FixAppointment extends javax.swing.JFrame {
         jLabel10.setText("at");
 
         time.setFont(new java.awt.Font("Ubuntu", 1, 17)); // NOI18N
-
-        jLabel11.setText("do payment.");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -285,7 +283,7 @@ public class FixAppointment extends javax.swing.JFrame {
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(109, 109, 109)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 328, Short.MAX_VALUE))
+                .addGap(0, 346, Short.MAX_VALUE))
         );
 
         pack();
