@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package onlinedoctorappointmentsystem;
-
+import java.awt.*;  
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -29,6 +29,9 @@ public class AppointmentHistory extends javax.swing.JFrame {
                 ResultSet rp = stmt.executeQuery("select doctor.name,appointmentbooking.dateofapp from appointmentbooking,doctor where doctor.doc_id=appointmentbooking.doc_id and (appointmentbooking.id="+Login.id1+" and appointmentbooking.dateofapp<curdate())");
                 //rp.next();
                 int x=550,y=350;
+                Panel panel=new Panel();  
+                panel.setBounds(40,80,200,200);    
+                panel.setBackground(Color.yellow);  
                 while(rp.next())
                 {
                     JLabel name2 = new JLabel();

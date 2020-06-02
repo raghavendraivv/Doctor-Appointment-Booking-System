@@ -19,7 +19,7 @@ public class Signup extends javax.swing.JFrame {
     public static String username1;
     public static String password1;
     public static String password2;
-    public static int t=0;
+    public static int t=0,z=1,y=0;
     public static String pass=null;
     public static int pp=1;
     public static String gender1;
@@ -295,13 +295,13 @@ public class Signup extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(755, 755, 755)
+                        .addGap(897, 897, 897)
                         .addComponent(jLabel4)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 696, Short.MAX_VALUE)
+                .addGap(22, 22, 22)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 544, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(616, 616, 616))
         );
@@ -310,12 +310,15 @@ public class Signup extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(30, 30, 30)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 287, Short.MAX_VALUE))
+                .addComponent(jLabel4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 283, Short.MAX_VALUE))
         );
 
         pack();
@@ -323,37 +326,18 @@ public class Signup extends javax.swing.JFrame {
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
-        if(password1.equals(password2))
-        {
-            pass = password1;
-            //System.out.println(pass);
-            t=1;
-           // stmt.executeUpdate("insert into user(username,password)"+ "values('"+ username1 + "','amrita')");
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(rootPane,"Password Does not Match!!");
-               // System.out.println("Wrong Password");
-        }
+        
          try {
            Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/doctorappointment","raghs","root");
                 Statement stmt=conn.createStatement();  
                 //stmt.executeQuery("use doctorappointment");
                 ResultSet rs=stmt.executeQuery("select * from user");
-               while(rs.next())
+               if(z==0)
                {
-//                {
-//                    System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3)); 
-                   if(username1.equals(rs.getString(2)))
-                   {
-                      pp=0;
-                      //AlreadyExists ae = new AlreadyExists();
-                      //ae.setVisible(true);
-                      JOptionPane.showMessageDialog(rootPane,"Username Exists");
-                   }
+                   JOptionPane.showMessageDialog(rootPane,"Please enter valid username");
                }
-                  if(t==1&&pp!=0)
+                  if(t==1&&pp!=0&&z==1&&y==0)
                   {
                     stmt.executeUpdate("insert into user(username,password,gender,blood_group,Contact,city)"+ "values('"+username1+"','"+pass+"','"+gender1+"','"+blood+"',"+contact1+",'"+city1+"')");
                   }
@@ -378,6 +362,46 @@ public class Signup extends javax.swing.JFrame {
     private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
         // TODO add your handling code here:
         username1 = username.getText();
+        try {
+           Class.forName("com.mysql.jdbc.Driver");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/doctorappointment","raghs","root");
+                Statement stmt=conn.createStatement();  
+                //stmt.executeQuery("use doctorappointment");
+                ResultSet rs=stmt.executeQuery("select * from user");
+               while(rs.next())
+               {
+//                {
+//                    System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3)); 
+                   if(username1.equals(rs.getString(2)))
+                   {
+                      pp=0;
+                      //AlreadyExists ae = new AlreadyExists();
+                      //ae.setVisible(true);
+                      JOptionPane.showMessageDialog(rootPane,"Username Exists, Please Enter another Username");
+                   }
+               }
+                conn.close();
+        }
+         catch (Exception e) {
+                    e.printStackTrace();
+		}
+        int k = username1.length(),l=0;
+        for(int i=0;i<k;i++)
+        {
+            if(username1.charAt(i)>=48&&username1.charAt(i)<=57)
+            {
+                l++;
+            }
+            else
+            {
+                z=1;
+            }
+        }
+        if(l==k)
+        {
+            z=0;
+            JOptionPane.showMessageDialog(rootPane,"Please Enter Valid Username");
+        }
        // System.out.println(username1);    
     }//GEN-LAST:event_usernameActionPerformed
 
@@ -391,11 +415,32 @@ public class Signup extends javax.swing.JFrame {
         // TODO add your handling code here:
         password2 = repassword.getText();
         //System.out.print(password2);
+        if(password1.equals(password2))
+        {
+            pass = password1;
+            //System.out.println(pass);
+            t=1;
+           // stmt.executeUpdate("insert into user(username,password)"+ "values('"+ username1 + "','amrita')");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(rootPane,"Password Does not Match!!");
+               // System.out.println("Wrong Password");
+        }
     }//GEN-LAST:event_repasswordActionPerformed
 
     private void ContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactActionPerformed
         // TODO add your handling code here:
         contact1 = Contact.getText();
+        int k = contact1.length();
+        if(k==10)
+        {
+            y=1;
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(rootPane,"Phone Number Invaild");
+        }
     }//GEN-LAST:event_ContactActionPerformed
 
     private void cityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityActionPerformed
