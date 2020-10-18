@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package onlinedoctorappointmentsystem;
 
 import java.sql.Connection;
@@ -14,7 +10,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author raghavendhra
+ * @author raghavendra
  */
 public class ForgotPassword extends javax.swing.JFrame {
     public static String username1;
@@ -23,6 +19,7 @@ public class ForgotPassword extends javax.swing.JFrame {
     public static String pass2;
     public static int t=1;
     public static int ii;
+	public static int foget=0;
     
     /**
      * Creates new form ForgotPassword
