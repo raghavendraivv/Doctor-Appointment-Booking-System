@@ -24,21 +24,19 @@ public class ManageProfile extends javax.swing.JFrame{
     public ManageProfile() {
         
         initComponents();
-       Login l = new Login();
-       user1 = l.username1;
-       // System.out.println(user1 + "MP");
+       Login log = new Login();
+       user1 = log.username1;
+       
         try {
            Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/doctorappointment","raghs","root");
                 Statement stmt=conn.createStatement();  
-                //stmt.executeQuery("use doctorappointment");
-                //ResultSet rs=stmt.executeQuery("select * from user");
-                //System.out.println(user1 + "MP");
+               
                 ResultSet rp = stmt.executeQuery("select * from user where username='"+user1+"'");
                 rp.next();
-              // System.out.println(rp.getString(4));
+              
                String gen = rp.getString(4);
-                //conn.close();
+              
                   wgender.setText(String.valueOf(gen));
                   wbg.setText(String.valueOf(rp.getString(5)));
                   wcontact.setText(String.valueOf(rp.getString(6)));
